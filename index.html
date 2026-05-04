@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>A&L Music – 60+ Years of Play</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    /* ── Reset ── */
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html, body {
+      height: 100%;
+    }
+
+    body {
+      font-family: 'Open Sans', sans-serif;
+      background: #4a5a78;
+      color: #ffffff;
+    }
+
+    /* ── Desktop layout ── */
+    .page-wrapper {
+      display: flex;
+      min-height: 100vh;
+    }
+
+    /* ── Left content panel ── */
+    .content-panel {
+      width: 40%;
+      min-width: 360px;
+      background: #5b6a87;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 60px 48px;
+      position: relative;
+      z-index: 2;
+    }
+
+    .logo {
+      margin-bottom: 36px;
+    }
+
+    .logo img {
+      width: 160px;
+      height: auto;
+    }
+
+    h1 {
+      font-size: 2rem;
+      font-weight: 800;
+      line-height: 1.2;
+      margin-bottom: 20px;
+      color: #ffffff;
+    }
+
+    .tagline {
+      font-size: 0.95rem;
+      font-weight: 400;
+      line-height: 1.6;
+      color: rgba(255, 255, 255, 0.85);
+      margin-bottom: 40px;
+    }
+
+    .contact-info {
+      font-size: 0.85rem;
+      line-height: 1.8;
+      color: rgba(255, 255, 255, 0.9);
+      margin-bottom: 24px;
+    }
+
+    .btn-get-in-touch {
+      display: inline-block;
+      background: rgba(255, 255, 255, 0.2);
+      color: #ffffff;
+      text-decoration: none;
+      padding: 14px 40px;
+      font-family: 'Open Sans', sans-serif;
+      font-size: 0.95rem;
+      font-weight: 600;
+      border: none;
+      cursor: pointer;
+      transition: background 0.3s ease;
+      text-align: center;
+    }
+
+    .btn-get-in-touch:hover {
+      background: rgba(255, 255, 255, 0.35);
+    }
+
+    .copyright {
+      display: none;
+    }
+
+    /* ── Slideshow panel ── */
+    .slideshow-panel {
+      flex: 1;
+      position: relative;
+      overflow: hidden;
+      min-height: 100vh;
+    }
+
+    .slideshow-slide {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      opacity: 0;
+      transition: opacity 1.2s ease-in-out;
+    }
+
+    .slideshow-slide.active {
+      opacity: 1;
+    }
+
+    .slideshow-slide img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    /* ── Slideshow arrows ── */
+    .slideshow-arrow {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      z-index: 10;
+      background: rgba(0, 0, 0, 0.4);
+      color: #ffffff;
+      border: none;
+      width: 44px;
+      height: 44px;
+      font-size: 1.2rem;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      transition: opacity 0.3s ease, background 0.3s ease;
+      border-radius: 50%;
+    }
+
+    .slideshow-panel:hover .slideshow-arrow {
+      opacity: 1;
+    }
+
+    .slideshow-arrow:hover {
+      background: rgba(0, 0, 0, 0.65);
+    }
+
+    .slideshow-arrow.prev {
+      left: 16px;
+    }
+
+    .slideshow-arrow.next {
+      right: 16px;
+    }
+
+    /* ── Mobile layout (800px breakpoint) ── */
+    @media (max-width: 800px) {
+      .page-wrapper {
+        flex-direction: column;
+        min-height: auto;
+      }
+
+      .content-panel {
+        width: 100%;
+        min-width: unset;
+        padding: 48px 32px 40px;
+        text-align: center;
+        order: 2;
+      }
+
+      .logo {
+        margin-bottom: 28px;
+      }
+
+      .logo img {
+        width: 140px;
+      }
+
+      h1 {
+        font-size: 1.6rem;
+        margin-bottom: 16px;
+      }
+
+      .tagline {
+        margin-bottom: 32px;
+      }
+
+      .contact-info {
+        margin-bottom: 20px;
+      }
+
+      .btn-get-in-touch {
+        display: block;
+        width: 100%;
+        max-width: 300px;
+        margin: 0 auto 32px;
+      }
+
+      .copyright {
+        display: block;
+        font-size: 0.75rem;
+        color: rgba(255, 255, 255, 0.55);
+        margin-top: 16px;
+        font-style: italic;
+      }
+
+      .slideshow-panel {
+        min-height: 280px;
+        height: 40vw;
+        max-height: 360px;
+        order: 1;
+      }
+
+      .slideshow-arrow {
+        width: 36px;
+        height: 36px;
+        font-size: 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="page-wrapper">
+    <!-- Left content panel -->
+    <div class="content-panel">
+      <div class="logo">
+        <!-- Inline SVG logo for A&L Music -->
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="160" height="160">
+          <!-- Outer blue circle -->
+          <circle cx="100" cy="90" r="85" fill="#1a3a8a"/>
+          <!-- Inner rings -->
+          <circle cx="100" cy="90" r="70" fill="none" stroke="#3355aa" stroke-width="3"/>
+          <circle cx="100" cy="90" r="60" fill="none" stroke="#3355aa" stroke-width="2.5"/>
+          <circle cx="100" cy="90" r="50" fill="none" stroke="#3355aa" stroke-width="2"/>
+          <circle cx="100" cy="90" r="40" fill="none" stroke="#3355aa" stroke-width="1.5"/>
+          <!-- Center building/jukebox shape -->
+          <rect x="82" y="45" width="36" height="55" rx="2" fill="#cc2222"/>
+          <rect x="88" y="50" width="24" height="10" rx="1" fill="#ffffff"/>
+          <rect x="88" y="64" width="5" height="20" rx="1" fill="#ffffff"/>
+          <rect x="95" y="64" width="5" height="20" rx="1" fill="#ffffff"/>
+          <rect x="102" y="64" width="5" height="20" rx="1" fill="#ffffff"/>
+          <rect x="88" y="88" width="24" height="6" rx="1" fill="#ffffff"/>
+          <!-- A&L MUSIC text -->
+          <text x="100" y="118" text-anchor="middle" fill="#ffffff" font-family="'Open Sans', sans-serif" font-size="20" font-weight="800">A&amp;L MUSIC</text>
+          <!-- Banner -->
+          <rect x="40" y="128" width="120" height="22" rx="3" fill="#cc2222"/>
+          <text x="100" y="144" text-anchor="middle" fill="#ffffff" font-family="'Open Sans', sans-serif" font-size="11" font-weight="700">60+ Years of Play.</text>
+        </svg>
+      </div>
+
+      <h1>Business solutions for Jukebox, Billiards, Darts, Arcade Games, ATMs, and more</h1>
+
+      <p class="tagline">Contact us below to see how we can find an amusement solution for your business.</p>
+
+      <div class="contact-info">
+        819 N. Marshall St.<br>
+        Henderson, TX 75652<br>
+        (903) 658-0551
+      </div>
+
+      <a href="mailto:matt@ALMusic.co" class="btn-get-in-touch">Get in Touch</a>
+
+      <p class="copyright">Copyright &copy;2026 A&amp;L Music</p>
+    </div>
+
+    <!-- Slideshow panel -->
+    <div class="slideshow-panel">
+      <div class="slideshow-slide active">
+        <img src="images/slideshow-1.jpg" alt="Jukebox">
+      </div>
+      <div class="slideshow-slide">
+        <img src="images/slideshow-2.jpg" alt="Arcade games">
+      </div>
+      <div class="slideshow-slide">
+        <img src="images/slideshow-3.jpg" alt="Billiards">
+      </div>
+      <div class="slideshow-slide">
+        <img src="images/slideshow-4.jpg" alt="Darts">
+      </div>
+      <button class="slideshow-arrow prev" aria-label="Previous slide">&#10094;</button>
+      <button class="slideshow-arrow next" aria-label="Next slide">&#10095;</button>
+    </div>
+  </div>
+
+  <script>
+    (function() {
+      const slides = document.querySelectorAll('.slideshow-slide');
+      const prevBtn = document.querySelector('.slideshow-arrow.prev');
+      const nextBtn = document.querySelector('.slideshow-arrow.next');
+      let current = 0;
+      let autoTimer;
+
+      function goTo(index) {
+        slides[current].classList.remove('active');
+        current = (index + slides.length) % slides.length;
+        slides[current].classList.add('active');
+      }
+
+      function next() {
+        goTo(current + 1);
+      }
+
+      function prev() {
+        goTo(current - 1);
+      }
+
+      function startAuto() {
+        autoTimer = setInterval(next, 5000);
+      }
+
+      function resetAuto() {
+        clearInterval(autoTimer);
+        startAuto();
+      }
+
+      prevBtn.addEventListener('click', function() {
+        prev();
+        resetAuto();
+      });
+
+      nextBtn.addEventListener('click', function() {
+        next();
+        resetAuto();
+      });
+
+      startAuto();
+    })();
+  </script>
+
+</body>
+</html>
