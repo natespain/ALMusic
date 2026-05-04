@@ -68,6 +68,8 @@ h1 {
 
 .btn-get-in-touch {
   display: inline-block;
+  max-width: 350px;
+  width: 100%;
   background: rgba(255, 255, 255, 0.2);
   color: #ffffff;
   text-decoration: none;
