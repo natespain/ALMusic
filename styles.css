@@ -11,8 +11,11 @@ html, body {
 
 body {
   font-family: 'Open Sans', sans-serif;
-  background: #4a5a78;
+  background: #121832;
   color: #ffffff;
+}
+a, a:visited, a:hover {
+  color:#ffffff;
 }
 
 /* ── Desktop layout ── */
@@ -25,7 +28,7 @@ body {
 .content-panel {
   width: 40%;
   min-width: 360px;
-  background: #5b6a87;
+  background: #121832;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -88,7 +91,11 @@ h1 {
 }
 
 .copyright {
-  display: none;
+  display: block;
+  font-size: 0.75rem;
+  color: rgba(255, 255, 255, 0.55);
+  margin-top: 50px;
+  font-style: italic;
 }
 
 /* ── Slideshow panel ── */
@@ -199,13 +206,6 @@ h1 {
     margin: 0 auto 32px;
   }
 
-  .copyright {
-    display: block;
-    font-size: 0.75rem;
-    color: rgba(255, 255, 255, 0.55);
-    margin-top: 16px;
-    font-style: italic;
-  }
 
   .slideshow-panel {
     min-height: 280px;
